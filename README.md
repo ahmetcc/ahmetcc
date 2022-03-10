@@ -1,4 +1,4 @@
-![counter](https://[YOUR_ENDPOINT].m.pipedream.net)
+![counter](https://enmzkz7iu8937fu.m.pipedream.net)
 
 async (event, steps)=> {
 const axios = require("axios")
