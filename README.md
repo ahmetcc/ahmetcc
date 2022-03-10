@@ -1,3 +1,4 @@
+async (event, steps)=> {
 const axios = require("axios")
 
 // Retrieve existing counter and increment for this view
@@ -21,3 +22,4 @@ $respond({
   },
   body: data,
 }) 
+}
