@@ -1,16 +1,23 @@
-### Hi there 👋
+const axios = require("axios")
 
-<!--
-**ahmetcc/ahmetcc** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+// Retrieve existing counter and increment for this view
+// See https://docs.pipedream.com/workflows/steps/code/state/
+const counter = $checkpoint + 1 || 1
 
-Here are some ideas to get you started:
+// Use shields.io to generate a badge with our counter as the message
+const { data } = await axios({
+  url: `https://img.shields.io/static/v1?label=Profile-Views&message=${counter}&color=green`,
+})
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+// Save the incremented counter back to state
+$checkpoint = counter
+
+// See https://docs.pipedream.com/workflows/steps/triggers/#customizing-the-http-response
+$respond({
+  status: 200,
+  headers: {
+    'Content-Type': 'image/svg+xml',
+    'Cache-Control': 'max-age=0, no-cache, no-store, must-revalidate'
+  },
+  body: data,
+}) 
