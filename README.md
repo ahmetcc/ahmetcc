@@ -1,3 +1,5 @@
+![counter](https://[YOUR_ENDPOINT].m.pipedream.net)
+
 async (event, steps)=> {
 const axios = require("axios")
 const counter = $checkpoint + 1 || 1
